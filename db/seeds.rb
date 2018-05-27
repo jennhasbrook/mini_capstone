@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Product.create(name: "The Simpsons House Legos"  price: 300,image_url: "tbd", description: "D'oh! The Simpsons™ House has been turned into LEGO® bricks!")
+Product.create(name: "Millennium Falcon Legos" price: 799 ,image_url:"tbd", description: "Travel the LEGO® galaxy in the ultimate Millennium Falcon!")
+Product.create(name: "Big Ben Legos"  price: 249 ,image_url: "tbd", description: "Build the world’s best-known clock tower!")
+
