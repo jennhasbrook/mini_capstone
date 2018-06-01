@@ -1,1 +1,0 @@
-json.view @products
