@@ -10,13 +10,24 @@ require 'unirest'
 # puts "Describe the product."
 # description = gets.chomp
 
-# 
-puts "Which product id number do you want to delete?"
-product_id = gets.chomp
+# # 
+# puts "Which product id number do you want to delete?"
+# product_id = gets.chomp
 
 
 
-response = Unirest.delete("http://localhost:3000/api/products/#{product_id}").body
+# response = Unirest.delete("http://localhost:3000/api/products/#{product_id}").body
 
 
-p response
+# p response
+
+  response = Unirest.post(
+    "http://localhost:3000/users",
+    parameters: {
+      name: "Peter",
+      email: "peter@email.com",
+      password: "password",
+      password_confirmation: "password"
+    }
+  )
+  p response.body

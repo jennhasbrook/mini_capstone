@@ -1,7 +1,1 @@
-json.array! @products.each do |product|
-  json.id product.id
-  json.name product.name
-  json.image product.image_url
-  json.price product.price
-  json.description product.description
-end
+json.array! @products, partial: 'product', as: :product
