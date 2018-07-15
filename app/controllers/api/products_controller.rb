@@ -31,22 +31,30 @@ class Api::ProductsController < ApplicationController
     render 'show.json.jbuilder'
   end
 
-  def create
-    @product = Product.new(
-    name: params[:name],
-    price: params[:price],
-    description: params[:description],
-    supplier_id: params[:supplier_id]
-    )
+def create
+   # if current_user && current_user.admin
+     @product = Product.new(
+       name: params[:name],
+       price: params[:price],
+       description: params[:description],
+       supplier_id: params[:supplier_id]
+     )
 
-    if @product.save
-      render 'show.json.jbuilder'
-    else
-      render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
+       if @product.save
+         @image = Image.new(
+           product_id: @product.id,
+           url: "https://cdn.pixabay.com/photo/2012/04/26/18/56/smiley-42842_960_720.png")
+
+         if @image.save
+           render 'show.json.jbuilder'
+         else
+           render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
+         end
+       # else
+       #   render json: {}, status: :unauthorized
+       # end
     end
-   
-  end
-
+ end
   def update
     product_id = params[:id]
     @product = Product.find(product_id)
